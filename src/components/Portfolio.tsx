@@ -1,98 +1,108 @@
-import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
 const Portfolio = () => {
-  const [selectedProject, setSelectedProject] = useState<number | null>(null);
-
   const projects = [
     {
       id: 1,
       title: "E-commerce Platform",
-      desc: "Крупная платформа онлайн-торговли с микросервисной архитектурой",
-      tags: ["React", "Node.js", "PostgreSQL"],
-      color: "from-blue-500/20 to-cyan-500/20",
+      category: "Web Development",
+      description: "A modern online shopping platform with advanced filtering and payment integration",
+      tags: ["React", "Node.js", "Stripe"],
+      gradient: "from-emerald-400 to-teal-500"
     },
     {
       id: 2,
-      title: "FinTech Dashboard",
-      desc: "Аналитическая панель для управления финансовыми операциями",
-      tags: ["Vue.js", "Python", "MongoDB"],
-      color: "from-purple-500/20 to-pink-500/20",
+      title: "Healthcare Dashboard",
+      category: "UI/UX Design",
+      description: "Comprehensive medical records management system for healthcare providers",
+      tags: ["Figma", "React", "Charts"],
+      gradient: "from-blue-400 to-cyan-500"
     },
     {
       id: 3,
-      title: "Healthcare App",
-      desc: "Мобильное приложение для записи к врачам и телемедицины",
-      tags: ["React Native", "Firebase", "TypeScript"],
-      color: "from-green-500/20 to-emerald-500/20",
+      title: "Mobile Banking App",
+      category: "Mobile Development",
+      description: "Secure and intuitive banking application for iOS and Android",
+      tags: ["React Native", "Firebase"],
+      gradient: "from-purple-400 to-pink-500"
     },
     {
       id: 4,
-      title: "AI Chat Platform",
-      desc: "Платформа для корпоративного общения с AI-ассистентом",
-      tags: ["Next.js", "OpenAI", "Redis"],
-      color: "from-orange-500/20 to-red-500/20",
+      title: "Restaurant Website",
+      category: "Web Development",
+      description: "Beautiful restaurant website with online ordering and reservations",
+      tags: ["Next.js", "Tailwind"],
+      gradient: "from-orange-400 to-red-500"
     },
     {
       id: 5,
-      title: "IoT Dashboard",
-      desc: "Система мониторинга и управления IoT устройствами",
-      tags: ["Angular", "MQTT", "InfluxDB"],
-      color: "from-indigo-500/20 to-violet-500/20",
+      title: "Fitness Tracker",
+      category: "Mobile App",
+      description: "Personal fitness tracking application with workout plans and nutrition",
+      tags: ["Flutter", "Firebase"],
+      gradient: "from-green-400 to-emerald-500"
     },
   ];
 
   return (
-    <section id="portfolio" className="py-20 bg-card/30">
+    <section id="portfolio" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Наши <span className="gradient-text">проекты</span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            Our <span className="text-primary">Portfolio</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Успешно реализованные проекты для клиентов из разных сфер бизнеса
+          <div className="w-24 h-1 bg-primary mx-auto mb-6" />
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Showcasing our best work and successful projects delivered to satisfied clients
           </p>
         </div>
 
-        <Carousel className="max-w-5xl mx-auto" opts={{ align: "start", loop: true }}>
+        <Carousel className="max-w-6xl mx-auto" opts={{ align: "start", loop: true }}>
           <CarouselContent>
             {projects.map((project) => (
               <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Card 
-                      className={`cursor-pointer bg-gradient-to-br ${project.color} border-border hover:border-primary/50 transition-smooth hover:glow-effect h-full`}
-                      onClick={() => setSelectedProject(project.id)}
-                    >
+                    <Card className="cursor-pointer overflow-hidden hover:shadow-xl transition-smooth border-2 hover:border-primary h-full">
+                      <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
+                        <ExternalLink className="w-16 h-16 text-white" />
+                      </div>
                       <CardContent className="p-6">
-                        <div className="aspect-video bg-background/50 rounded-lg mb-4 flex items-center justify-center">
-                          <ExternalLink className="w-12 h-12 text-primary" />
-                        </div>
+                        <Badge className="mb-3 bg-primary/10 text-primary hover:bg-primary/20">
+                          {project.category}
+                        </Badge>
                         <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                        <p className="text-muted-foreground text-sm mb-4">{project.desc}</p>
+                        <p className="text-muted-foreground text-sm mb-4">
+                          {project.description}
+                        </p>
                         <div className="flex flex-wrap gap-2">
                           {project.tags.map((tag) => (
-                            <Badge key={tag} variant="secondary">{tag}</Badge>
+                            <Badge key={tag} variant="secondary" className="text-xs">
+                              {tag}
+                            </Badge>
                           ))}
                         </div>
                       </CardContent>
                     </Card>
                   </DialogTrigger>
-                  <DialogContent>
+                  <DialogContent className="max-w-2xl">
                     <DialogHeader>
                       <DialogTitle className="text-2xl">{project.title}</DialogTitle>
                       <DialogDescription className="text-base">
-                        {project.desc}
+                        {project.description}
                       </DialogDescription>
                     </DialogHeader>
                     <div className="space-y-4">
+                      <div className={`h-64 rounded-lg bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
+                        <ExternalLink className="w-24 h-24 text-white" />
+                      </div>
                       <div>
-                        <h4 className="font-semibold mb-2">Технологии:</h4>
+                        <h4 className="font-semibold mb-2">Technologies Used:</h4>
                         <div className="flex flex-wrap gap-2">
                           {project.tags.map((tag) => (
                             <Badge key={tag} variant="secondary">{tag}</Badge>
@@ -100,15 +110,16 @@ const Portfolio = () => {
                         </div>
                       </div>
                       <div>
-                        <h4 className="font-semibold mb-2">Результаты:</h4>
+                        <h4 className="font-semibold mb-2">Key Features:</h4>
                         <ul className="list-disc list-inside text-muted-foreground space-y-1">
-                          <li>Увеличение конверсии на 45%</li>
-                          <li>Снижение времени загрузки на 60%</li>
-                          <li>Масштабирование до 10,000+ пользователей</li>
+                          <li>Responsive design for all devices</li>
+                          <li>Optimized performance and SEO</li>
+                          <li>Secure authentication system</li>
+                          <li>Real-time data synchronization</li>
                         </ul>
                       </div>
-                      <Button className="w-full glow-effect">
-                        Подробнее о проекте <ExternalLink className="ml-2 h-4 w-4" />
+                      <Button className="w-full bg-primary hover:bg-primary-dark">
+                        View Live Project <ExternalLink className="ml-2 h-4 w-4" />
                       </Button>
                     </div>
                   </DialogContent>
@@ -116,8 +127,8 @@ const Portfolio = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
         </Carousel>
       </div>
     </section>

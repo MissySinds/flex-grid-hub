@@ -1,4 +1,4 @@
-import { ArrowRight, Code2, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -8,78 +8,49 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-card/50" />
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000" />
+    <section id="home" className="min-h-screen flex items-center relative overflow-hidden pt-20 bg-gradient-to-br from-primary-light/20 via-background to-background">
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[600px] opacity-20">
+        <div className="absolute inset-0 bg-gradient-to-l from-primary/30 to-transparent" />
+      </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-card border border-primary/20 rounded-full mb-8 animate-fade-in">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-muted-foreground">Инновационные IT-решения</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up">
-            Создаем будущее{" "}
-            <span className="gradient-text">вместе с вами</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 animate-fade-in-up delay-200">
-            Разработка веб-приложений, мобильных решений и цифровая трансформация вашего бизнеса
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+              NEED HELP TO BUILD YOUR{" "}
+              <span className="text-primary">WEB APPLICATION?</span>
+            </h1>
+            
+            <p className="text-lg text-muted-foreground max-w-xl">
+              We are committed to providing our customers with exceptional service while 
+              offering our employees the best training and a working environment.
+            </p>
+            
             <Button 
               size="lg" 
-              className="glow-effect text-lg px-8"
+              className="bg-primary hover:bg-primary-dark text-primary-foreground px-8 py-6 text-base"
               onClick={() => scrollToSection("#contact")}
             >
-              Начать проект <ArrowRight className="ml-2 h-5 w-5" />
+              GET IN TOUCH <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="text-lg px-8"
-              onClick={() => scrollToSection("#portfolio")}
-            >
-              <Code2 className="mr-2 h-5 w-5" />
-              Наши работы
-            </Button>
+          </div>
+
+          <div className="relative hidden md:block">
+            <div className="relative w-full aspect-square">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl" />
+              <div className="relative w-full h-full flex items-center justify-center">
+                <div className="w-4/5 h-4/5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-full flex items-center justify-center border border-primary/20">
+                  <div className="text-center">
+                    <div className="w-32 h-32 bg-primary rounded-full mx-auto mb-4 flex items-center justify-center">
+                      <span className="text-6xl font-bold text-primary-foreground">R</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes fade-in-up {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-          animation: fade-in 0.6s ease-out;
-        }
-        .animate-fade-in-up {
-          animation: fade-in-up 0.8s ease-out;
-        }
-        .delay-200 {
-          animation-delay: 0.2s;
-          opacity: 0;
-          animation-fill-mode: forwards;
-        }
-        .delay-300 {
-          animation-delay: 0.3s;
-          opacity: 0;
-          animation-fill-mode: forwards;
-        }
-        .delay-1000 {
-          animation-delay: 1s;
-        }
-      `}</style>
     </section>
   );
 };

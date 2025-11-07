@@ -3,40 +3,41 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const FAQ = () => {
   const faqs = [
     {
-      question: "Какие технологии вы используете?",
-      answer: "Мы работаем с современным стеком технологий: React, Next.js, Node.js, Python, TypeScript, PostgreSQL, MongoDB, AWS, Azure и многими другими. Выбор технологий зависит от требований проекта."
+      question: "What services do you offer?",
+      answer: "We offer a comprehensive range of digital services including web development, mobile app development, UI/UX design, digital marketing, cloud solutions, and cybersecurity. Our team specializes in creating custom solutions tailored to your specific business needs."
     },
     {
-      question: "Сколько времени занимает разработка проекта?",
-      answer: "Сроки зависят от сложности проекта. Простой лендинг — 1-2 недели, корпоративный сайт — 1-2 месяца, сложное веб-приложение — от 3 месяцев. Точные сроки определяются после анализа требований."
+      question: "How long does a typical project take?",
+      answer: "Project timelines vary depending on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 3-6 months. We provide detailed timelines during the initial consultation and keep you updated throughout the development process."
     },
     {
-      question: "Предоставляете ли вы поддержку после запуска?",
-      answer: "Да, мы предлагаем различные варианты поддержки: от базового технического обслуживания до полного сопровождения с развитием функциональности. Первые 3 месяца поддержки входят в стоимость проекта."
+      question: "Do you provide ongoing support after project completion?",
+      answer: "Yes, we offer comprehensive post-launch support including bug fixes, updates, and maintenance. We provide different support packages to suit your needs, from basic technical support to full-service maintenance with regular updates and improvements."
     },
     {
-      question: "Можно ли увидеть примеры ваших работ?",
-      answer: "Конечно! У нас есть портфолио реализованных проектов. Некоторые работы находятся под NDA, но мы можем показать демо-версии или провести экскурсию по функционалу схожих проектов."
+      question: "What is your development process?",
+      answer: "Our process includes: 1) Discovery and planning, 2) Design and prototyping, 3) Development and testing, 4) Deployment and launch, 5) Post-launch support. We follow agile methodology to ensure flexibility and regular communication throughout the project."
     },
     {
-      question: "Как формируется стоимость проекта?",
-      answer: "Стоимость рассчитывается индивидуально на основе технического задания. Учитывается сложность функционала, количество интеграций, дизайн, сроки и требования к масштабируемости. Предоставляем детальную смету."
+      question: "How do you ensure project quality?",
+      answer: "We maintain high quality through rigorous testing, code reviews, and adherence to industry best practices. Our QA process includes functional testing, performance optimization, security audits, and cross-browser/device compatibility checks."
     },
     {
-      question: "Работаете ли вы с зарубежными клиентами?",
-      answer: "Да, у нас есть опыт работы с клиентами из разных стран. Мы работаем удаленно, используем современные инструменты для коммуникации и управления проектами. Возможна оплата в различных валютах."
+      question: "What are your payment terms?",
+      answer: "We typically work with milestone-based payments: initial deposit upon project start, progress payments at key milestones, and final payment upon project completion. Specific terms are outlined in the project agreement and can be customized based on project scope."
     }
   ];
 
   return (
-    <section id="faq" className="py-20">
+    <section id="faq" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Часто задаваемые <span className="gradient-text">вопросы</span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            Frequently Asked <span className="text-primary">Questions</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ответы на популярные вопросы о наших услугах и процессе работы
+          <div className="w-24 h-1 bg-primary mx-auto mb-6" />
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Find answers to common questions about our services and working process
           </p>
         </div>
 
@@ -46,12 +47,12 @@ const FAQ = () => {
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`}
-                className="bg-card border border-border rounded-lg px-6 hover:border-primary/50 transition-smooth"
+                className="bg-background border-2 border-border rounded-lg px-6 hover:border-primary transition-smooth shadow-sm"
               >
-                <AccordionTrigger className="text-left hover:text-primary transition-smooth">
+                <AccordionTrigger className="text-left hover:text-primary transition-smooth font-semibold">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-muted-foreground leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

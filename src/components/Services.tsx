@@ -1,81 +1,87 @@
-import { Code, Smartphone, Cloud, Database, Shield, Zap } from "lucide-react";
+import { Code2, Palette, LineChart, Shield, Smartphone, Cloud } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Services = () => {
   const services = [
     {
-      category: "development",
-      title: "Веб-разработка",
-      icon: Code,
-      items: [
-        { name: "Корпоративные сайты", desc: "Современные адаптивные веб-сайты для вашего бизнеса" },
-        { name: "E-commerce", desc: "Интернет-магазины с удобным управлением" },
-        { name: "SaaS платформы", desc: "Облачные решения для автоматизации бизнеса" },
-      ]
+      icon: Code2,
+      title: "Web Development",
+      description: "Creating modern, responsive websites and web applications using the latest technologies."
     },
     {
-      category: "mobile",
-      title: "Мобильная разработка",
+      icon: Palette,
+      title: "UI/UX Design",
+      description: "Designing beautiful, intuitive user interfaces that provide excellent user experience."
+    },
+    {
       icon: Smartphone,
-      items: [
-        { name: "iOS приложения", desc: "Нативные приложения для Apple устройств" },
-        { name: "Android приложения", desc: "Приложения для платформы Android" },
-        { name: "Cross-platform", desc: "Кроссплатформенные решения React Native" },
-      ]
+      title: "Mobile Apps",
+      description: "Building native and cross-platform mobile applications for iOS and Android."
     },
     {
-      category: "cloud",
-      title: "Облачные сервисы",
+      icon: LineChart,
+      title: "Digital Marketing",
+      description: "Helping your business grow through strategic digital marketing campaigns."
+    },
+    {
+      icon: Shield,
+      title: "Security",
+      description: "Implementing robust security measures to protect your digital assets."
+    },
+    {
       icon: Cloud,
-      items: [
-        { name: "AWS/Azure", desc: "Миграция и настройка облачной инфраструктуры" },
-        { name: "DevOps", desc: "Автоматизация развертывания и мониторинг" },
-        { name: "Kubernetes", desc: "Контейнеризация и оркестрация" },
-      ]
-    }
+      title: "Cloud Solutions",
+      description: "Deploying scalable cloud infrastructure for your applications."
+    },
   ];
 
-  const features = [
-    { icon: Database, title: "Big Data", desc: "Аналитика больших данных" },
-    { icon: Shield, title: "Безопасность", desc: "Защита от киберугроз" },
-    { icon: Zap, title: "Производительность", desc: "Оптимизация и ускорение" },
+  const categories = [
+    { value: "all", label: "All Services" },
+    { value: "development", label: "Development" },
+    { value: "design", label: "Design" },
+    { value: "marketing", label: "Marketing" },
   ];
 
   return (
-    <section id="services" className="py-20 relative">
+    <section id="services" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Наши <span className="gradient-text">услуги</span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            Our <span className="text-primary">Services</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Полный цикл разработки от идеи до запуска и поддержки проекта
+          <div className="w-24 h-1 bg-primary mx-auto mb-6" />
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            We provide comprehensive digital solutions to help your business thrive in the modern world
           </p>
         </div>
 
-        <Tabs defaultValue="development" className="max-w-5xl mx-auto mb-16">
-          <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 h-auto gap-4 bg-transparent">
-            {services.map((service) => (
+        <Tabs defaultValue="all" className="max-w-6xl mx-auto">
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4 mb-12 h-auto">
+            {categories.map((category) => (
               <TabsTrigger
-                key={service.category}
-                value={service.category}
-                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                key={category.value}
+                value={category.value}
+                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3"
               >
-                <service.icon className="w-5 h-5 mr-2" />
-                {service.title}
+                {category.label}
               </TabsTrigger>
             ))}
           </TabsList>
 
-          {services.map((service) => (
-            <TabsContent key={service.category} value={service.category} className="mt-8">
-              <div className="grid md:grid-cols-3 gap-6">
-                {service.items.map((item) => (
-                  <Card key={item.name} className="bg-card border-border hover:border-primary/50 transition-smooth hover:glow-effect">
+          {categories.map((category) => (
+            <TabsContent key={category.value} value={category.value}>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {services.map((service, index) => (
+                  <Card key={index} className="border-2 hover:border-primary transition-smooth hover:shadow-lg bg-background">
                     <CardHeader>
-                      <CardTitle>{item.name}</CardTitle>
-                      <CardDescription>{item.desc}</CardDescription>
+                      <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <service.icon className="w-8 h-8 text-primary" />
+                      </div>
+                      <CardTitle className="text-xl">{service.title}</CardTitle>
+                      <CardDescription className="text-base leading-relaxed">
+                        {service.description}
+                      </CardDescription>
                     </CardHeader>
                   </Card>
                 ))}
@@ -83,20 +89,6 @@ const Services = () => {
             </TabsContent>
           ))}
         </Tabs>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {features.map((feature) => (
-            <Card key={feature.title} className="bg-gradient-to-br from-card to-secondary border-border text-center">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-full flex items-center justify-center">
-                  <feature.icon className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.desc}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
       </div>
     </section>
   );
