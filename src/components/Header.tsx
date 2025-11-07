@@ -16,11 +16,11 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { href: "#home", label: "HOME" },
-    { href: "#about", label: "ABOUT US" },
-    { href: "#services", label: "SERVICES" },
-    { href: "#portfolio", label: "PORTFOLIO" },
-    { href: "#contact", label: "CONTACT" },
+    { href: "#home", label: "Главная" },
+    { href: "#services", label: "Услуги" },
+    { href: "#portfolio", label: "Портфолио" },
+    { href: "#faq", label: "FAQ" },
+    { href: "#contact", label: "Контакты" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -32,16 +32,13 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
-        isScrolled ? "bg-background/95 backdrop-blur-lg shadow-md" : "bg-background"
+        isScrolled ? "bg-card/95 backdrop-blur-lg border-b border-border" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection("#home"); }} className="flex items-center">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-2">
-              <span className="text-primary-foreground font-bold text-xl">R</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">Riseonic</span>
+          <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection("#home"); }} className="text-2xl font-bold gradient-text">
+            TechSolutions
           </a>
 
           {/* Desktop Navigation */}
@@ -54,11 +51,14 @@ const Header = () => {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-smooth"
+                className="text-muted-foreground hover:text-foreground transition-smooth"
               >
                 {link.label}
               </a>
             ))}
+            <Button onClick={() => scrollToSection("#contact")} className="glow-effect">
+              Связаться
+            </Button>
           </nav>
 
           {/* Mobile Burger Menu */}
@@ -78,11 +78,14 @@ const Header = () => {
                       e.preventDefault();
                       scrollToSection(link.href);
                     }}
-                    className="text-lg font-medium text-muted-foreground hover:text-primary transition-smooth"
+                    className="text-lg text-muted-foreground hover:text-foreground transition-smooth"
                   >
                     {link.label}
                   </a>
                 ))}
+                <Button onClick={() => scrollToSection("#contact")} className="w-full glow-effect mt-4">
+                  Связаться
+                </Button>
               </nav>
             </SheetContent>
           </Sheet>
