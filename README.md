@@ -1,4 +1,4 @@
-# Лендинг на Bootstrap 5 + React + TimeScript
+# Лендинг на Bootstrap 5 + React + TypeScript
 https://www.figma.com/design/nj3r9FSrtt5bBOzByQ892O/Untitled?node-id=0-1&t=4h1YMiNYHbT1AarE-1
 
 ## 📌 О проекте
