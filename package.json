@@ -1,6 +1,7 @@
 { 
   "name": "vite_react_shadcn_ts",
   "private": true,
+  "homepage": "https://MissySinds.github.io/flex-grid-hub",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
