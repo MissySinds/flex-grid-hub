@@ -50,3 +50,24 @@
 - Всплывающие подсказки (tooltips)
 
 ## 📁 Структура проекта
+
+flex-grid-hub/
+├── public/
+│ ├── index.html
+│ └── assets/
+├── src/
+│ ├── components/
+│ │ ├── Header/
+│ │ ├── Sections/
+│ │ ├── Footer/
+│ │ └── UI/
+│ ├── hooks/
+│ │ └── useTimeScript.js
+│ ├── styles/
+│ │ ├── bootstrap-custom.scss
+│ │ └── components.css
+│ ├── utils/
+│ │ └── timescript.js
+│ └── App.js
+├── package.json
+└── README.md
