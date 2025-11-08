@@ -51,23 +51,36 @@
 
 ## 📁 Структура проекта
 
-flex-grid-hub/
-├── public/
-│ ├── index.html
-│ └── assets/
-├── src/
-│ ├── components/
-│ │ ├── Header/
-│ │ ├── Sections/
-│ │ ├── Footer/
-│ │ └── UI/
-│ ├── hooks/
-│ │ └── useTimeScript.js
-│ ├── styles/
-│ │ ├── bootstrap-custom.scss
-│ │ └── components.css
-│ ├── utils/
-│ │ └── timescript.js
-│ └── App.js
-├── package.json
-└── README.md
+ -flex-grid-hub/
+- ├── public/
+- │ ├── index.html
+ -│ └── assets/
+- ├── src/
+- │ ├── components/
+- │ │ ├── Header/
+- │ │ ├── Sections/
+- │ │ ├── Footer/
+- │ │ └── UI/
+- │ ├── hooks/
+- │ │ └── useTimeScript.js
+- │ ├── styles/
+- │ │ ├── bootstrap-custom.scss
+- │ │ └── components.css
+- │ ├── utils/
+- │ │ └── timescript.js
+- │ └── App.js
+- ├── package.json
+- └── README.md
+
+
+
+## 🚀 Установка и запуск
+```bash
+# Установка зависимостей
+npm install
+
+# Запуск в режиме разработки
+npm start
+
+# Сборка проекта
+npm run build
